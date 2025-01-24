@@ -1,0 +1,36 @@
+# scatter plot
+df = ED
+x = df["longitude"]
+y = df["latitude"]
+z = df["mag"]
+
+# Use the 's' parameter to set the size of the markers based on the magnitude
+plt.scatter(x, y, s=z*10, color='blue', alpha=0.5)
+
+# Add labels and title
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Earthquake Scatterplot')
+
+# Show the plot
+plt.show()
+
+#create a histogram to show the distribution of the magnitude of the earthquakes (i.e. intensity/frequency)
+df = ED
+m = df["mag"]
+plt.hist(m)
+plt.title("Distribution of the Magnitude of Earthquakes")
+plt.show() 
+
+#create a pie chart to show the percentage of the different types of earthquakes occurring
+df = ED
+t = df["type"]
+type_counts = t.value_counts()
+mycolors = ["b", "c", "m", "y"]
+
+plt.pie(type_counts, labels=type_counts.index, autopct='%1.1f%%', colors = mycolors)
+
+plt.title("Percentage of Different Types of Earthquakes")
+plt.legend(type_counts.index, title="Types of Earthquakes")
+plt.show()
+
